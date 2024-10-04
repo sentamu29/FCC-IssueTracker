@@ -5,11 +5,13 @@ const bodyParser  = require('body-parser');
 const expect      = require('chai').expect;
 const cors        = require('cors');
 require('dotenv').config();
+const connectDb = require('./utils/connectDb')
 
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
+connectDb()
 let app = express();
 
 app.use('/public', express.static(process.cwd() + '/public'));
